@@ -41,6 +41,7 @@
 
 .main-content-container{
   background-color: blueviolet;
+  height: 86.2vh;
 }
 
 .side-brand{
@@ -127,4 +128,16 @@ li{
 
 .fa-sun {
   color: yellow;
+}
+
+/* main-content */
+.content-container{
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+.content-container.active{
+  visibility: visible;
+  height: max-content;
+  width: 100%;
 }
