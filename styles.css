@@ -26,3 +26,12 @@
 .main-content-container{
   background-color: blueviolet;
 }
+
+.side-brand{
+  background-image: url("./src/images/massa_logo.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 375px;
+  margin: 1vh;
+}
