@@ -3,3 +3,26 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.sidebar-container{
+  position: fixed;
+  width: 375px;
+  height: 100vh;
+  background-color: antiquewhite;
+}
+.navbar-container,
+.main-content-container,
+.footer-container{
+  padding-left: 375px;
+}
+
+.navbar-container,
+.footer-container{
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  background-color: aqua;
+}
+
+.main-content-container{
+  background-color: blueviolet;
+}
