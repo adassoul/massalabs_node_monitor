@@ -35,3 +35,23 @@
   width: 375px;
   margin: 1vh;
 }
+
+.side-menu{
+  margin-top: 25vh;
+}
+
+ul{
+  list-style: none;
+}
+
+li a{
+  text-decoration: none;
+  color: black;
+}
+
+li{
+  margin: 3vh 5vh ;
+}
+img{
+  
+}
