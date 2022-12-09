@@ -4,6 +4,22 @@
   box-sizing: border-box;
 }
 
+:root{
+  --dark-mode-primary: #292c35;
+  --light-mode-primary: rgb(237, 237, 237);
+}
+
+.container{
+  height: 100vh;
+  width: auto;
+  background-color: var(--light-mode-primary);
+}
+
+.container.dark{
+  background-color: var(--dark-mode-primary);
+}
+
+/* sidebar */
 .sidebar-container{
   position: fixed;
   width: 375px;
@@ -52,6 +68,63 @@ li a{
 li{
   margin: 3vh 5vh ;
 }
-img{
-  
+
+/* navbar */
+.navbar-container{
+  display: flex;
+  justify-content: space-between;
+}
+.title{
+  margin-left: 2vh;
+}
+.dark-mode{
+  margin-right: 4vh;
+  margin-top: 1vh;
+}
+    /* darkmode */
+.dark-mode {
+  margin: 0;
+  transition: background 0.2s linear;
+}
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  margin-right: 2vh;
+  width: 50px;
+  height: 26px;
+  background-color:#111;
+  display: flex;
+  border-radius:50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  transform: scale(1.5);
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: 3.1px;
+  left: 3.3px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+/*  target the elemenent after the label*/
+.checkbox:checked + .label .ball{
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: pink;
+}
+
+.fa-sun {
+  color: yellow;
 }
