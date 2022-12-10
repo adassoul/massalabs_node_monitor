@@ -5,6 +5,9 @@
 }
 
 :root{
+  --side-brand-width: 250px;
+  --side-brand-width-mobile: 70px;
+
   --dark-mode-primary: #57617d;
   --dark-mode-error: red;
   --light-mode-primary: rgb(237, 237, 237);
@@ -23,14 +26,14 @@
 /* sidebar */
 .sidebar-container{
   position: fixed;
-  width: 375px;
+  width: var(--side-brand-width);
   height: 100vh;
   background-color: antiquewhite;
 }
 .navbar-container,
 .main-content-container,
 .footer-container{
-  padding-left: 375px;
+  padding-left: var(--side-brand-width);
 }
 
 .navbar-container,
@@ -50,7 +53,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   height: 50px;
-  width: 375px;
+  width: var(--side-brand-width);
   margin: 1vh;
 }
 
@@ -67,7 +70,7 @@ li a{
   color: black;
 }
 
-li{
+.link li{
   margin: 3vh 5vh ;
 }
 
@@ -215,7 +218,7 @@ li{
 .content-container.public-api.active{
   height: 100%;
   width: 100%;
-  /* margin-left: 375px; */
+  /* margin-left: var(--side-brand-width); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,7 +230,7 @@ li{
   background-color: red;
   position: absolute;
   height: 300px;
-  width: 500px;
+  width: 650px;
   transform: translateY(-60%);
   display: flex;
 }
@@ -249,7 +252,7 @@ li{
 
 
 .card:not(:first-child) {
-  /* margin-left: -calc((100% - 375px) - 950px); */
+  /* margin-left: -calc((100% - var(--side-brand-width)) - 950px); */
   margin-left: -100px;
 }
 
@@ -346,4 +349,41 @@ textarea:focus{
   position: absolute;
   top: 3px;
   left: 3px;
+}
+
+@media screen and (max-width: 1000px){
+  .sidebar-container{
+    width: 120px;
+  }
+  a>span{
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+  .side-brand{
+    background-image: url("./src/images/logo_massa.mobile.webp");
+  }
+  .sidebar-container,
+  .side-brand{
+    width: var(--side-brand-width-mobile);
+  }
+  .navbar-container,
+  .main-content-container,
+  .footer-container{
+    padding-left: var(--side-brand-width-mobile);
+  }
+  .link li{
+    margin: 1vh 2.5vh ;
+  }
+  
+  /* public api */
+  .cards-container{
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .cards-container{
+    width: 350px;
+  }
 }
