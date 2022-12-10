@@ -9,7 +9,7 @@
 
 /* carousel */
 
-.content-container.public-api.active{
+.content-container.public-api{
   height: 100%;
   width: 100%;
   /* margin-left: var(--side-brand-width); */
