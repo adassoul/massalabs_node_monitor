@@ -1,21 +1,4 @@
-console.log(window.massa)
-
-// console.log(_1)
-
-// var checkbox = document.querySelector("input[name='checkbox']");
-var checkbox = document.querySelector(".checkbox")
-const container = document.querySelector('.container')
-console.log(checkbox)
-console.log(container)
-checkbox.addEventListener('change', ()=>{
-  container.classList.toggle('dark');
-})
-
-// const checkbox = document.getElementById('checkbox');
-
-// checkbox.addEventListener('change', ()=>{
-//   document.body.classList.toggle('dark');
-// })
+console.log("credentialsCtrl.js")
 
 const handleCredentialsTextInput = (className, charNumb, startsWith) => {
   var input = document.querySelector(`.input-container.${className} input`)
@@ -42,28 +25,7 @@ const handleCredentialsTextInput = (className, charNumb, startsWith) => {
     console.log(result)
   })
 }
-/* //changed with links
-const handleContentContainersWithLink = (className) => {
-  var link = document.querySelector(`.link.${className}>li>a`) 
-  var contentContainers = document.querySelectorAll('.content-container')
-  link.addEventListener("click", ()=>{
-    contentContainers.forEach(container => {
-      if (container.classList.contains(className)){
-        container.classList.add("active")
-      }
-      else{
-        container.classList.remove("active")
-      }
-    })
-  }) 
-}
 
-handleContentContainersWithLink("credentials")
-handleContentContainersWithLink("public-api")
-handleContentContainersWithLink("private-api")
-handleContentContainersWithLink("smart-contracts")
-handleContentContainersWithLink("wallet")
-*/
 //private key: length 52 starts with S1
 handleCredentialsTextInput("private-key", 52, "S1")
 //public key: length 51 starts with P1
