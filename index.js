@@ -42,7 +42,7 @@ const handleCredentialsTextInput = (className, charNumb, startsWith) => {
     console.log(result)
   })
 }
-
+/* //changed with links
 const handleContentContainersWithLink = (className) => {
   var link = document.querySelector(`.link.${className}>li>a`) 
   var contentContainers = document.querySelectorAll('.content-container')
@@ -63,7 +63,7 @@ handleContentContainersWithLink("public-api")
 handleContentContainersWithLink("private-api")
 handleContentContainersWithLink("smart-contracts")
 handleContentContainersWithLink("wallet")
-
+*/
 //private key: length 52 starts with S1
 handleCredentialsTextInput("private-key", 52, "S1")
 //public key: length 51 starts with P1

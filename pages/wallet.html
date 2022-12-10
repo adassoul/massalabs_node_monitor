@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type='text/javascript' src="https://cdn.jsdelivr.net/npm/@massalabs/massa-web3@x.x.x/bundle.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="./styles.css">
-  <script type='module' src="./index.js"></script>
+  <link rel="stylesheet" href="../styles.css">
+  <script type='module' src="../index.js"></script>
   <title>Massa Labs Node Monitor</title>
 </head>
 <body>
@@ -18,8 +18,8 @@
           <ul>
             <div class="link credentials">
               <li>
-                <a href="#">
-                  <img src="./src/images/side-menu/credential.png" style="height: 2.5vh; width: auto; object-fit: contain">
+                <a href="./credentials.html">
+                  <img src="../src/images/side-menu/credential.png" style="height: 2.5vh; width: auto; object-fit: contain">
                   <span>
                     &#160;&#160;credentials
                   </span>
@@ -28,8 +28,8 @@
             </div>
             <div class="link public-api">
               <li>
-                <a href="#">
-                  <img src="./src/images/side-menu/public-api.png" style="height: 2.5vh; width: auto; object-fit: contain">
+                <a href="./public-api.html">
+                  <img src="../src/images/side-menu/public-api.png" style="height: 2.5vh; width: auto; object-fit: contain">
                   <span>
                     &#160;&#160;publicApi
                   </span>
@@ -38,8 +38,8 @@
             </div>
             <div class="link private-api">
               <li>
-              <a href="#">
-                <img src="./src/images/side-menu/private-api.png" style="height: 2.5vh; width: auto; object-fit: contain">
+              <a href="./private-api.html">
+                <img src="../src/images/side-menu/private-api.png" style="height: 2.5vh; width: auto; object-fit: contain">
                 <span>
                   &#160;&#160;privateApi
                   </span>
@@ -48,8 +48,8 @@
             </div>
             <div class="link smart-contracts">
               <li>
-                <a href="#">
-                  <img src="./src/images/side-menu/smart-contract.png" style="height: 2.5vh; width: auto; object-fit: contain">
+                <a href="./smart-contracts.html">
+                  <img src="../src/images/side-menu/smart-contract.png" style="height: 2.5vh; width: auto; object-fit: contain">
                   <span>
                     &#160;&#160;smartContracts
                   </span>
@@ -58,8 +58,8 @@
             </div>
             <div class="link wallet">
               <li>
-                <a href="#">
-                  <img src="./src/images/side-menu/wallet.png" style="height: 2vh; width: auto; object-fit: contain">
+                <a href="./wallet.html">
+                  <img src="../src/images/side-menu/wallet.png" style="height: 2vh; width: auto; object-fit: contain">
                   <span>
                     &#160;&#160;&#160;wallet
                   </span>
@@ -83,37 +83,10 @@
     </div>
     </div>
     <div class="main-content-container">
-      <div class="credentials content-container">
-        <div class="credentials-inputs-container">
-          <div class="input-container private-key">
-            <input type="text" placeholder="private key"/>
-            <label class="input-label">private key</label>
-            <div>
-              <label class="input-error hidden private-key">Please enter valid message</label>
-            </div>
-          </div>
-          <div class="input-container public-key">
-            <input type="text" placeholder="public key"/>
-            <label class="input-label">public key</label>
-            <div>
-              <label class="input-error hidden public-key">Please enter valid message</label>
-            </div>
-          </div>
-          <div class="input-container address">
-            <input type="text" placeholder="address"/>
-            <label class="input-label">address</label>
-            <div>
-              <label class="input-error hidden address">Please enter valid message</label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="public-api content-container">public-api-content-conta</div>
-      <div class="private-api content-container">private-api-content-cont</div>
-      <div class="smart-contracts content-container">smart-contracts-content-</div>
-      <div class="wallet content-container">wallet-content-container</div>
+      <div class="wallet content-container active">wallet-content-container</div>
     </div>
     <div class="footer-container">footer-container</div>
   </div>
 </body>
 </html>
+

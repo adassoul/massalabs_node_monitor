@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type='text/javascript' src="https://cdn.jsdelivr.net/npm/@massalabs/massa-web3@x.x.x/bundle.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../styles.css">
+  <script type='module' src="../index.js"></script>
+  <title>Massa Labs Node Monitor</title>
+</head>
+<body>
+  <div class="container dark" id="container">
+    <div class="sidebar-container">
+      <div class="side-brand"></div>
+        <div class="side-menu">
+          <ul>
+            <div class="link credentials">
+              <li>
+                <a href="./credentials.html">
+                  <img src="../src/images/side-menu/credential.png" style="height: 2.5vh; width: auto; object-fit: contain">
+                  <span>
+                    &#160;&#160;credentials
+                  </span>
+                </a>
+              </li>
+            </div>
+            <div class="link public-api">
+              <li>
+                <a href="./public-api.html">
+                  <img src="../src/images/side-menu/public-api.png" style="height: 2.5vh; width: auto; object-fit: contain">
+                  <span>
+                    &#160;&#160;publicApi
+                  </span>
+                </a>
+              </li>
+            </div>
+            <div class="link private-api">
+              <li>
+              <a href="./private-api.html">
+                <img src="../src/images/side-menu/private-api.png" style="height: 2.5vh; width: auto; object-fit: contain">
+                <span>
+                  &#160;&#160;privateApi
+                  </span>
+                </a>
+              </li>
+            </div>
+            <div class="link smart-contracts">
+              <li>
+                <a href="./smart-contracts.html">
+                  <img src="../src/images/side-menu/smart-contract.png" style="height: 2.5vh; width: auto; object-fit: contain">
+                  <span>
+                    &#160;&#160;smartContracts
+                  </span>
+                </a>
+              </li>
+            </div>
+            <div class="link wallet">
+              <li>
+                <a href="./wallet.html">
+                  <img src="../src/images/side-menu/wallet.png" style="height: 2vh; width: auto; object-fit: contain">
+                  <span>
+                    &#160;&#160;&#160;wallet
+                  </span>
+                </a>
+              </li>
+            </div>
+          </ul>
+      </div>
+    </div>
+    <div class="navbar-container">
+      <div class="title">
+        <h1>Node Monitor</h1>
+      </div>
+      <div class="dark-mode">
+        <input type="checkbox" class="checkbox" id="checkbox" name="checked">
+        <label for="checkbox" class="label">
+          <i class="fas fa-moon"></i>
+          <i class='fas fa-sun'></i>
+          <div class='ball'></div>
+        </label>
+    </div>
+    </div>
+    <div class="main-content-container">
+      <div class="credentials content-container">
+        <div class="credentials-inputs-container">
+          <div class="input-container private-key">
+            <input type="text" placeholder="private key"/>
+            <label class="input-label">private key</label>
+            <div>
+              <label class="input-error hidden private-key">Please enter valid message</label>
+            </div>
+          </div>
+          <div class="input-container public-key">
+            <input type="text" placeholder="public key"/>
+            <label class="input-label">public key</label>
+            <div>
+              <label class="input-error hidden public-key">Please enter valid message</label>
+            </div>
+          </div>
+          <div class="input-container address">
+            <input type="text" placeholder="address"/>
+            <label class="input-label">address</label>
+            <div>
+              <label class="input-error hidden address">Please enter valid message</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="public-api content-container">
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">Card 1</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+            <div class="card-input">
+              <textarea name="" id="" cols="30" rows="10" placeholder="enter params here"></textarea>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Card 1</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Card 1</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Card 1</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Card 1</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Card 1</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Card 1</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Card 1</h3>
+            <div class="bar">
+              <div class="emptybar"></div>
+              <div class="filledbar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="private-api content-container">private-api-content-cont</div>
+      <div class="smart-contracts content-container">smart-contracts-content-</div>
+      <div class="wallet content-container">wallet-content-container</div>
+    </div>
+    <div class="footer-container">footer-container</div>
+  </div>
+</body>
+</html>
+
