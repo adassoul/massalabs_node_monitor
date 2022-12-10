@@ -5,7 +5,8 @@
 }
 
 :root{
-  --dark-mode-primary: #292c35;
+  --dark-mode-primary: #57617d;
+  --dark-mode-error: red;
   --light-mode-primary: rgb(237, 237, 237);
 }
 
@@ -40,7 +41,7 @@
 }
 
 .main-content-container{
-  background-color: blueviolet;
+  background-color: transparent;
   height: 86.2vh;
 }
 
@@ -140,4 +141,66 @@ li{
   visibility: visible;
   height: max-content;
   width: 100%;
+}
+
+  /* credentials */
+.credentials-inputs-container {
+  padding-top: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex-flow: column;
+}
+
+.input-container {
+  position: relative;
+  margin: 12px 0;
+  width: 50%;
+  max-width: 400px;
+}
+
+.input-container input {
+  padding: 8px 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: #acacac solid 2px; 
+  background-color: transparent;
+  color: #eee;
+  transition: 0.15s all ease;
+  width: 100%;
+}
+
+.input-container input::placeholder {
+  color: transparent;
+}
+
+.input-container .input-label {
+  position: absolute;
+  top: 9px;
+  left: 0;
+  font-size: 18px;
+  padding: 0 10px;
+  color: #acacac;
+  pointer-events: none;
+  transition: 0.15s all ease;
+}
+
+.input-container input:focus + .input-label,
+.input-container input:not(:placeholder-shown) + .input-label {
+  transform: translate(5px, -22px);
+  background-color: #383838;
+  font-size: 14px;
+  color: #eee;
+  
+}
+
+.input-error{
+  color: var(--dark-mode-error);
+}
+.input-error.hidden{
+  visibility: hidden;
+  width: 0;
+  height: 0;
 }
