@@ -1,8 +1,8 @@
 console.log(window.massa)
 
-// console.log(_1)
+let wls = window.localStorage;
 
-// var checkbox = document.querySelector("input[name='checkbox']");
+/** handle darkmode */
 var checkbox = document.querySelector(".checkbox")
 const container = document.querySelector('.container')
 console.log(checkbox)
@@ -11,8 +11,23 @@ checkbox.addEventListener('change', ()=>{
   container.classList.toggle('dark');
 })
 
-// const checkbox = document.getElementById('checkbox');
-
-// checkbox.addEventListener('change', ()=>{
-//   document.body.classList.toggle('dark');
-// })
+/** logout after 15min and delete localStorage */
+let inactivityTime = function() {
+  let time;
+  // let timeToLogOut = 900000; //15min
+  let timeToLogOut = 1000; //1sec
+  window.onload = resetTimer;
+  document.onmousemove = resetTimer;
+  document.onkeypress = resetTimer;
+  function logout() {
+    alert("You are now logged out.")
+    wls.clear();
+  }
+  function resetTimer() {
+    clearTimeout(time);
+    time = setTimeout(logout, timeToLogOut)
+  }
+};
+window.onload = function() {
+  inactivityTime();
+}
