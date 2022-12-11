@@ -12,7 +12,7 @@ const ClientFactory = window.massa.ClientFactory;
 const DefaultProviderUrls = window.massa.DefaultProviderUrls;
 const ProviderType = window.massa.ProviderType;
 
-export let baseAccount = {
+let baseAccount = {
   "address": "",
   "secretKey": "",
   "publicKey": "",
@@ -108,6 +108,7 @@ const handleLoginToClient = () => {
           retry,
           baseAccount
           );
+        console.log(testnetClient)
         fail.classList.remove("visible")
         success.classList.add("visible")
         setTimeout(() => {
