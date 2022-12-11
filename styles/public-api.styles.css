@@ -16,19 +16,15 @@
   padding-left: 15px;
   padding-top: 30px;
   font-size: xx-large;
+  display: block;
 }
 
 
 /* carousel */
 
 .content-container.public-api{
-  height: 100%;
-  width: 100%;
-  /* margin-left: var(--side-brand-width); */
   display: flex;
   justify-content: center;
-  align-items: center;
-  /* background-color: aquamarine; */
   z-index: 22;
 }
 
@@ -36,7 +32,7 @@
   position: absolute;
   height: 300px;
   width: 650px;
-  transform: translateY(-60%);
+  margin-top: 150px;
   display: flex;
 }
 
