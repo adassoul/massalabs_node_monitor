@@ -171,10 +171,23 @@
   .cards-container{
     width: 500px;
   }
+  .card:last-child {
+  width: 285px;
+}
+
+  .card:hover {
+    width: 300px;
+  }
 }
 
 @media screen and (max-width: 600px){
   .cards-container{
     width: 350px;
+  }
+  .card:last-child {
+  width: 340px;
+}
+  .card:hover:not(:last-child) {
+    width: 370px;
   }
 }
