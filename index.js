@@ -14,8 +14,8 @@ checkbox.addEventListener('change', ()=>{
 /** logout after 15min and delete localStorage */
 let inactivityTime = function() {
   let time;
-  // let timeToLogOut = 900000; //15min
-  let timeToLogOut = 1000; //1sec
+  let timeToLogOut = 900000; //15min
+  // let timeToLogOut = 1000; //1sec
   window.onload = resetTimer;
   document.onmousemove = resetTimer;
   document.onkeypress = resetTimer;
