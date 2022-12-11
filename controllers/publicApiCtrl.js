@@ -102,3 +102,80 @@ switch (typeOfNode) {
 	default:
 		console.log("please choose a correct node type.");
 }
+
+
+
+// let statu = await client.publicApi().getNodeStatus();
+// console.log("status");
+// console.log(statu)
+
+
+const launchBtns = document.querySelectorAll(".card-button button");
+[...launchBtns].forEach(btn => {
+	let btnCard = btn.parentElement.parentElement
+	btn.addEventListener("click", async()=>{
+
+	// 	console.log("launch button");
+	// 	console.log(btn.parentElement.parentElement)
+	// 	if(btn.parentElement.parentElement.classList.contains("getNodeStatus")){
+	// 		let statu = await client.publicApi().getNodeStatus();
+	// 		console.log("status");
+	// 		console.log(statu)
+	// 	}
+
+	//without params
+	if(btnCard.classList.contains("without-params")){
+		console.log("wihtout")
+	// getNodeStatus
+		if(btnCard.classList.contains("getNodeStatus")){
+			let statu = await client.publicApi().getNodeStatus();
+			console.log(statu)
+		}
+	// getCliques
+		if(btnCard.classList.contains("getCliques")){
+			let statu = await client.publicApi().getCliques();
+			console.log(statu)
+		}
+	// getStakers
+		if(btnCard.classList.contains("getStakers")){
+			let statu = await client.publicApi().getStakers();
+			console.log(statu)
+		}
+	}
+	
+	// with params
+	if(btnCard.classList.contains("with-params")){
+		console.log("with")
+		console.log(btnCard.classList)
+		// getAddresses
+		if(btnCard.classList.contains("getAddresses")){
+			let inputVal = btnCard.querySelector("textarea").value;
+			console.log(inputVal)
+		}
+		// getBlocks
+		if(btnCard.classList.contains("getBlocks")){
+		let inputVal = btnCard.querySelector("textarea").value;
+			console.log(inputVal)
+		}
+		// getEndorsements
+		if(btnCard.classList.contains("getEndorsements")){
+		let inputVal = btnCard.querySelector("textarea").value;
+			console.log(inputVal)
+		}
+		// getOperations
+		if(btnCard.classList.contains("getOperations")){
+		let inputVal = btnCard.querySelector("textarea").value;
+			console.log(inputVal)
+		}
+		// getDatastoreEntries
+		if(btnCard.classList.contains("getDatastoreEntries")){
+		let inputVal = btnCard.querySelector("textarea").value;
+			console.log(inputVal)
+		}
+	}
+	})
+})
+
+const handleLaunchButton = () => {
+
+}
