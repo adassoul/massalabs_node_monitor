@@ -25,20 +25,16 @@ let client;
  * input error handling
  */
 const wls = window.localStorage;
-
+var success = document.querySelector(".credentials-login-success");
+var fail = document.querySelector(".credentials-login-fail");
 
 const handleCredentialsTextInput = (className, charNumb, startsWith) => {
   var input = document.querySelector(`.input-container.${className} input`)
   var error = document.querySelector(`.input-error.${className}`)
-  var success = document.querySelector(".credentials-login-success");
   var result
     if((input.value.length === charNumb)&&(input.value.substring(0,2) === startsWith)){
       result = input.value;
       error.classList.add("hidden")
-      success.classList.add("visible")
-      setTimeout(() => {
-        success.classList.remove("visible")
-      }, 7000);
       // wls.setItem(className, result)
       switch(className){
         case "public-key":
@@ -74,8 +70,6 @@ const handleLoginToClient = () => {
     handleCredentialsTextInput("secret-key", 52, "S1")
     handleCredentialsTextInput("public-key", 51, "P1")
     handleCredentialsTextInput("address", 51, "A1")
-
-
     
     /**
      * create a massa client
@@ -107,11 +101,28 @@ const handleLoginToClient = () => {
     case "public":
       console.log("this is public");
       // initialize a testnet client
-      testnetClient = await ClientFactory.createDefaultClient(
-        DefaultProviderUrls.TESTNET,
-        retry,
-        baseAccount
-      );
+      try{
+        //connexion success to massaClient
+        testnetClient = await ClientFactory.createDefaultClient(
+          DefaultProviderUrls.TESTNET,
+          retry,
+          baseAccount
+          );
+          success.classList.add("visible")
+          setTimeout(() => {
+            success.classList.remove("visible")
+          }, 7000);
+          console.log("try");
+        }
+        catch(error){
+          //connexion failed to massaClient
+        success.classList.remove("visible")
+        fail.classList.add("visible")
+        setTimeout(() => {
+          fail.classList.remove("visible")
+        }, 7000);
+        console.log(error)
+      }
       client = testnetClient;
       console.log("testnetClient");
       console.log(testnetClient);
@@ -140,32 +151,14 @@ const handleLoginToClient = () => {
       console.log(customClient);
       break;
 
-      default:
-        console.log("please choose a correct node type.");
-      }
+    default:
+      console.log("please choose a correct node type.");
+    }
+    console.log(client);
+    wls.setItem("massaClient", client);
   })
 }
 
-/**
- * handle connexion to client
- */
-
-const handleClientCreation = () => {
-  console.log("client connexion")
-  // console.log(wls.getItem("private-key"))
-  // console.log(wls.getItem("public-key"))
-  // console.log(wls.getItem("address"))
-  wls.clear()
-}
-
-
-/**
- * main
- */
-//secret key: length 52 starts with S1
-//public key: length 51 starts with P1
-//address: length 51 starts with  A1
-
 handleLoginToClient()
 
-handleClientCreation()
+export const clientTest = 0
