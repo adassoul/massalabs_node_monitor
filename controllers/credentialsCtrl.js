@@ -12,10 +12,11 @@ const ClientFactory = window.massa.ClientFactory;
 const DefaultProviderUrls = window.massa.DefaultProviderUrls;
 const ProviderType = window.massa.ProviderType;
 
-let baseAccount = {
+export let baseAccount = {
   "address": "",
   "secretKey": "",
   "publicKey": "",
+  "createdInThread": "",
 }
 
 let testnetClient, customClient;
@@ -35,7 +36,6 @@ const handleCredentialsTextInput = (className, charNumb, startsWith) => {
     if((input.value.length === charNumb)&&(input.value.substring(0,2) === startsWith)){
       result = input.value;
       error.classList.add("hidden")
-      // wls.setItem(className, result)
       switch(className){
         case "public-key":
           baseAccount.publicKey = result;
@@ -108,14 +108,20 @@ const handleLoginToClient = () => {
           retry,
           baseAccount
           );
-          success.classList.add("visible")
-          setTimeout(() => {
-            success.classList.remove("visible")
-          }, 7000);
-          console.log("try");
-        }
-        catch(error){
-          //connexion failed to massaClient
+        fail.classList.remove("visible")
+        success.classList.add("visible")
+        setTimeout(() => {
+          success.classList.remove("visible")
+        }, 7000);
+        console.log("try");
+        console.log(baseAccount)
+        wls.setItem("secretKey", baseAccount.secretKey)
+        wls.setItem("publicKey", baseAccount.publicKey)
+        wls.setItem("address", baseAccount.address)
+        wls.setItem("createdInThread", baseAccount.createdInThread)
+      }
+      catch(error){
+        //connexion failed to massaClient
         success.classList.remove("visible")
         fail.classList.add("visible")
         setTimeout(() => {
@@ -155,10 +161,7 @@ const handleLoginToClient = () => {
       console.log("please choose a correct node type.");
     }
     console.log(client);
-    wls.setItem("massaClient", client);
   })
 }
 
 handleLoginToClient()
-
-export const clientTest = 0
