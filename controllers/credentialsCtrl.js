@@ -1,4 +1,26 @@
 console.log("credentialsCtrl.js")
+
+/** massa connection */
+//local, public or custom
+//public passes tests
+const typeOfNode = "public"; //local and custon have ERR-NET problem
+const retry = false;
+
+//common variables and Fns
+//start common
+const ClientFactory = window.massa.ClientFactory;
+const DefaultProviderUrls = window.massa.DefaultProviderUrls;
+const ProviderType = window.massa.ProviderType;
+
+let baseAccount = {
+  "address": "",
+  "secretKey": "",
+  "publicKey": "",
+}
+
+let testnetClient, customClient;
+let client;
+
 /**
  * input error handling
  */
@@ -10,14 +32,6 @@ const handleCredentialsTextInput = (className, charNumb, startsWith) => {
   var error = document.querySelector(`.input-error.${className}`)
   var success = document.querySelector(".credentials-login-success");
   var result
-    result = (
-              (input.value.length === charNumb)
-              &&
-              (input.value.substring(0,2) === startsWith)
-            ) 
-      ? input.value 
-      : 0
-
     if((input.value.length === charNumb)&&(input.value.substring(0,2) === startsWith)){
       result = input.value;
       error.classList.add("hidden")
@@ -25,7 +39,22 @@ const handleCredentialsTextInput = (className, charNumb, startsWith) => {
       setTimeout(() => {
         success.classList.remove("visible")
       }, 7000);
-      wls.setItem(className, result)
+      // wls.setItem(className, result)
+      switch(className){
+        case "public-key":
+          baseAccount.publicKey = result;
+          break;
+        case "secret-key":
+          baseAccount.secretKey = result;
+          break;
+        case "address":
+          baseAccount.address = result;
+          break;
+        default:
+          console.log("nothing has been saved in baseAccount");
+      }
+
+
     }
     else{
       result = 0;
@@ -40,12 +69,80 @@ const handleCredentialsTextInput = (className, charNumb, startsWith) => {
  */
 const button = document.querySelector(".credentials-login-button button")
 const handleLoginToClient = () => {
-  button.addEventListener("click", ()=>{
+  button.addEventListener("click", async()=>{
     console.log("click")
-    handleCredentialsTextInput("private-key", 52, "S1")
+    handleCredentialsTextInput("secret-key", 52, "S1")
     handleCredentialsTextInput("public-key", 51, "P1")
     handleCredentialsTextInput("address", 51, "A1")
 
+
+    
+    /**
+     * create a massa client
+     */
+    console.log(baseAccount)
+
+
+    switch (typeOfNode) {
+    //local node
+    case "local":
+      console.log("this is local");
+      console.log(baseAccount);
+      console.log(typeof(baseAccount));
+      testnetClient = await ClientFactory.createDefaultClient(
+        DefaultProviderUrls.LOCALNET,
+        retry,
+        baseAccount
+      );
+      client = testnetClient;
+      console.log("testnetClient");
+      console.log(testnetClient);
+
+      const nodeStatus = await testnetClient.publicApi().getNodeStatus();
+      // console.log("nodeStatus")
+      // console.log(nodeStatus)
+      break;
+
+    //public node
+    case "public":
+      console.log("this is public");
+      // initialize a testnet client
+      testnetClient = await ClientFactory.createDefaultClient(
+        DefaultProviderUrls.TESTNET,
+        retry,
+        baseAccount
+      );
+      client = testnetClient;
+      console.log("testnetClient");
+      console.log(testnetClient);
+      break;
+
+    //custom node
+    case "custom":
+      console.log("this is custom");
+      const providers = [
+        {
+          url: "http://127.0.0.1:33035",
+          type: ProviderType.PUBLIC,
+        },
+        {
+          url: "http://127.0.0.1:33034",
+          type: ProviderType.PRIVATE,
+        },
+      ];
+      customClient = await ClientFactory.createCustomClient(
+        providers,
+        retry,
+        baseAccount
+      );
+      client = customClient;
+      console.log("customClient");
+      console.log(customClient);
+      break;
+
+      default:
+        console.log("please choose a correct node type.");
+      }
   })
 }
 
@@ -55,9 +152,9 @@ const handleLoginToClient = () => {
 
 const handleClientCreation = () => {
   console.log("client connexion")
-  console.log(wls.getItem("private-key"))
-  console.log(wls.getItem("public-key"))
-  console.log(wls.getItem("address"))
+  // console.log(wls.getItem("private-key"))
+  // console.log(wls.getItem("public-key"))
+  // console.log(wls.getItem("address"))
   wls.clear()
 }
 
@@ -65,7 +162,7 @@ const handleClientCreation = () => {
 /**
  * main
  */
-//private key: length 52 starts with S1
+//secret key: length 52 starts with S1
 //public key: length 51 starts with P1
 //address: length 51 starts with  A1
 

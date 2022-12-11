@@ -160,6 +160,7 @@
   font-size: 23px;
   background-color: var(--dark-more-background-color-card-button);
   box-shadow: -1rem 1rem 3rem var(--dark-mode-box-shadow-card-button);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1000px){
