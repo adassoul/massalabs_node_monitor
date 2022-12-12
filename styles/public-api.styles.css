@@ -180,7 +180,7 @@
   height: 0px;
 }
 .output-container:hover::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
   height: 0px;
   transition: 04s ease-in;
 }
