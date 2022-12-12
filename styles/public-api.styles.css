@@ -21,7 +21,6 @@
 
 
 /* carousel */
-
 .content-container.public-api{
   display: flex;
   justify-content: center;
@@ -161,6 +160,35 @@
   background-color: var(--dark-more-background-color-card-button);
   box-shadow: -1rem 1rem 3rem var(--dark-mode-box-shadow-card-button);
   cursor: pointer;
+}
+
+/* output */
+.output-container{
+  /* width: 100%;
+  height: 100%; */
+  position: relative;
+  padding-left: 0px;
+  margin-top: 500px;
+  word-break: break-word;
+  overflow: scroll;
+  width: 1000px;
+  height: 280px;
+  
+}
+.output-container::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+.output-container:hover::-webkit-scrollbar {
+  width: 10px;
+  height: 0px;
+  transition: 04s ease-in;
+}
+.output-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+}
+.output-container::-webkit-scrollbar-thumb {
+  background-color: rgb(140, 85, 85);
 }
 
 @media screen and (max-width: 1000px){

@@ -110,67 +110,89 @@ switch (typeOfNode) {
 // console.log(statu)
 
 
+
+/**
+ * "
+ * 
+ * bsdfbsdfb
+	bfsdfbsfb   bsdfbsfbsdfb
+
+
+	sdfbsdfbsdfb"
+	is equal to 
+	"bsdfbsdfb bfsdfbsfb bsdfbsfbsdfb sdfbsdfbsdfb"
+*/
+const handleInputToParams = (input) => {
+	let trimmedInput = input.trim();
+	let noLineBrInput = trimmedInput.replace(/(\r\n|\n|\r)/gm, " ");
+	let noBlanksInput = noLineBrInput.replace(/\s\s+/g, ' ');
+	// console.log(noBlanksInput)
+	let splitInput = noBlanksInput.split(" ")
+	return splitInput
+}
+
+let output = document.querySelector(".output-container")
+const showInOutput = (text) => {
+	output.innerHTML = text;
+}
+
+
 const launchBtns = document.querySelectorAll(".card-button button");
 [...launchBtns].forEach(btn => {
-	let btnCard = btn.parentElement.parentElement
+	let btnCard = btn.parentElement.parentElement;
 	btn.addEventListener("click", async()=>{
-
-	// 	console.log("launch button");
-	// 	console.log(btn.parentElement.parentElement)
-	// 	if(btn.parentElement.parentElement.classList.contains("getNodeStatus")){
-	// 		let statu = await client.publicApi().getNodeStatus();
-	// 		console.log("status");
-	// 		console.log(statu)
-	// 	}
+		console.log(btnCard)
+		console.log(output)
 
 	//without params
 	if(btnCard.classList.contains("without-params")){
 		console.log("wihtout")
 	// getNodeStatus
 		if(btnCard.classList.contains("getNodeStatus")){
-			let statu = await client.publicApi().getNodeStatus();
-			console.log(statu)
+			let stat = await client.publicApi().getNodeStatus();
+			showInOutput(stat)
+			console.log(stat)
 		}
 	// getCliques
 		if(btnCard.classList.contains("getCliques")){
-			let statu = await client.publicApi().getCliques();
-			console.log(statu)
+			let cliques = await client.publicApi().getCliques();
+			showInOutput(cliques)
+			console.log(cliques)
 		}
 	// getStakers
 		if(btnCard.classList.contains("getStakers")){
-			let statu = await client.publicApi().getStakers();
-			console.log(statu)
+			let stakers = await client.publicApi().getStakers();
+			showInOutput(stakers)
+			console.log(stakers)
 		}
 	}
 	
 	// with params
 	if(btnCard.classList.contains("with-params")){
 		console.log("with")
-		console.log(btnCard.classList)
+		let inputVal = btnCard.querySelector("textarea").value;
+		let params = handleInputToParams(inputVal)
+		// console.log(btnCard.classList)
 		// getAddresses
 		if(btnCard.classList.contains("getAddresses")){
-			let inputVal = btnCard.querySelector("textarea").value;
-			console.log(inputVal)
+			let Addresses = await client.publicApi().getAddresses([...params])
 		}
 		// getBlocks
 		if(btnCard.classList.contains("getBlocks")){
-		let inputVal = btnCard.querySelector("textarea").value;
-			console.log(inputVal)
+			let Blocks = await client.publicApi().getBlocks([...params])
 		}
 		// getEndorsements
 		if(btnCard.classList.contains("getEndorsements")){
-		let inputVal = btnCard.querySelector("textarea").value;
-			console.log(inputVal)
+			let Endorsements = await client.publicApi().getEndorsements([...params])
 		}
 		// getOperations
 		if(btnCard.classList.contains("getOperations")){
-		let inputVal = btnCard.querySelector("textarea").value;
-			console.log(inputVal)
+			let Operations = await client.publicApi().getOperations([...params])
 		}
 		// getDatastoreEntries
 		if(btnCard.classList.contains("getDatastoreEntries")){
-		let inputVal = btnCard.querySelector("textarea").value;
-			console.log(inputVal)
+			let DatastoreEntries = await client.publicApi().getDatastoreEntries([...params])
+			console.log(params)
 		}
 	}
 	})
