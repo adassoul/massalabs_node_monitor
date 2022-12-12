@@ -17,10 +17,12 @@
   --side-brand-width: 250px;
   --side-brand-width-mobile: 70px;
 
-  --dark-mode-primary: #57617d;
+  --dark-mode-primary: linear-gradient(90deg,#172230 50.03%,#0c1219 85.82%);
   --dark-mode-error: red;
-  --dark-mode-text-color: black;
-  --light-mode-primary: rgb(237, 237, 237);
+  --dark-mode-text-color: white;
+  
+  --light-mode-primary: linear-gradient(90deg,#e74e4e61 13.96%,#3246ff5f 85%);
+  --light-mode-text-color: black;
 }
 
 * {
@@ -55,19 +57,24 @@ h2 {
 .container {
   height: 100vh;
   width: auto;
-  background-color: var(--light-mode-primary);
+  background: var(--dark-mode-primary);
+  color: var(--dark-mode-text-color);
+}
+.container.light {
+  background: transparent;
+  color: var(--light-mode-text-color);
 }
 
-.container.dark {
-  background-color: var(--dark-mode-primary);
-}
+/* .container.dark {
+  background: var(--dark-mode-primary);
+} */
 
 /* sidebar */
 .sidebar-container {
   position: fixed;
   width: var(--side-brand-width);
   height: 100vh;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
 }
 
 .navbar-container,
@@ -76,15 +83,24 @@ h2 {
   padding-left: var(--side-brand-width);
 }
 
+body{
+  background: var(--light-mode-primary);
+}
+
+.navbar-container.light,
+.footer-container.light {
+  background: var(--light-mode-primary);
+}
 .navbar-container,
 .footer-container {
   padding-top: 2vh;
   padding-bottom: 2vh;
-  background-color: aqua;
+  /* background-color: aqua; */
+  background: var(--dark-mode-primary);
 }
 
 .main-content-container {
-  background-color: transparent;
+  /* background-color: transparent; */
   height: 86vh;
 }
 
@@ -108,6 +124,10 @@ ul {
 .side-menu li a {
   text-decoration: none;
   color: var(--dark-mode-text-color);
+}
+.side-menu li a.light {
+  text-decoration: none;
+  color: var(--light-mode-text-color);
 }
 
 .link li {
@@ -144,7 +164,7 @@ ul {
   margin-right: 2vh;
   width: 50px;
   height: 26px;
-  background-color: #111;
+  background-color: rgba(95, 62, 62, 0.374);
   display: flex;
   border-radius: 50px;
   align-items: center;
@@ -155,12 +175,12 @@ ul {
 }
 
 .ball {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background-color: white;
   position: absolute;
-  top: 3.1px;
-  left: 3.3px;
+  top: 4px;
+  left: 4px;
   border-radius: 50%;
   transition: transform 0.2s linear;
 }
@@ -171,11 +191,14 @@ ul {
 }
 
 .fa-moon {
-  color: pink;
+  color: #172230;
 }
 
 .fa-sun {
-  color: yellow;
+  color: rgb(213, 100, 119);
+  /* background: linear-gradient(red, black);
+  color: transparent;
+  border-radius: 50%; */
 }
 
 /* main content */
@@ -204,6 +227,9 @@ ul {
 
 a{
   color: var(--dark-mode-text-color);
+}
+a.light{
+  color: var(--light-mode-text-color);
 }
 
 .main-content-description li a{

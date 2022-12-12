@@ -1,5 +1,15 @@
 console.log("credentialsCtrl.js")
 
+/** handle darkmode */
+var checkbox = document.querySelector(".checkbox")
+const credLabels = document.querySelectorAll('.input-container .input-label')
+checkbox.addEventListener('change', ()=>{
+    [...credLabels].forEach(label => {
+      label.classList.toggle('light');
+    })
+})
+
+
 /** massa connection */
 //local, public or custom
 //public passes tests
