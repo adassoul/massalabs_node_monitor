@@ -62,6 +62,35 @@
   z-index: 222;
   width: 250px;
 }
+/*handle long functions names cards*/
+.card:nth-child(2):hover {
+  width: 300px;
+}
+
+.card:nth-child(2):hover .card-button {
+  position: absolute;
+  top: 220px;
+  left: 95px;
+}
+.card:nth-child(5):hover {
+  width: 350px;
+}
+
+.card:nth-child(5):hover .card-button {
+  position: absolute;
+  top: 220px;
+  left: 110px;
+}
+.card:nth-child(6):hover {
+  width: 315px;
+}
+
+.card:nth-child(6):hover .card-button {
+  position: absolute;
+  top: 220px;
+  left: 100px;
+}
+/*end handle long functions names cards*/
 
 .card:hover ~ .card {
   position: relative;
