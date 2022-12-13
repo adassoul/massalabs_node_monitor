@@ -2,37 +2,40 @@
   --side-brand-width: 250px;
   --side-brand-width-mobile: 70px;
 
-    
   --dark-mode-error: red;
+  --dark-more-background-color-card-button: rgb(4, 4, 24);
+  --dark-mode-box-shadow-card-button: rgba(66, 18, 18, 0.619);
+
     
 }
+/* public api */
+/* title */ 
+.smart-contracts.title{
+  position: absolute;
+  padding-left: 15px;
+  padding-top: 30px;
+  font-size: xx-large;
+  display: block;
+}
+
 
 /* carousel */
-
-.content-container.public-api{
-  height: 100%;
-  width: 100%;
-  /* margin-left: var(--side-brand-width); */
+.content-container.smart-contracts{
   display: flex;
   justify-content: center;
-  align-items: center;
-  /* background-color: aquamarine; */
   z-index: 22;
 }
 
 .cards-container {
-  background-color: red;
   position: absolute;
   height: 300px;
   width: 650px;
-  transform: translateY(-60%);
+  margin-top: 150px;
   display: flex;
 }
 
-
-
 .card {
-  display: flex;
+  /* display: flex; */
   height: 280px;
   width: 200px;
   background-color: #17141d;
@@ -43,14 +46,14 @@
   left: 0px;
 }
 
-
+.card:last-child {
+  width: 250px;
+}
 
 .card:not(:first-child) {
   /* margin-left: -calc((100% - var(--side-brand-width)) - 950px); */
   margin-left: -100px;
 }
-
-
 
 .card:hover {
   position: relative;
@@ -60,15 +63,11 @@
   width: 250px;
 }
 
-
-
 .card:hover ~ .card {
   position: relative;
   left: 100px;
   transition: 0.4s ease-out;
 }
-
-
 
 .card-title {
   color: white;
@@ -78,8 +77,6 @@
   top: 15px;
 }
 
-
-
 .bar {
   position: absolute;
   top: 100px;
@@ -88,16 +85,12 @@
   width: 150px;
 }
 
-
-
 .emptybar {
   margin-top: -50px;
   background-color: #2e3033;
   width: 2%;
   height: 100%;
 }
-
-
 
 .filledbar {
   position: absolute;
@@ -108,14 +101,15 @@
   width: 0px;
   height: 100%;
   background: rgb(0,154,217);
-  background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
+  background: linear-gradient(314.83deg,#e74e4e 13.96%,#3246ff 85%);
   transition: 0.6s ease-out;
 }
 
 .card:hover .filledbar {
-  width: 90%;
+  width: 110%;
   transition: 0.4s ease-out;
 }
+
 .card:hover .emptybar {
   visibility: hidden;
   width: 0;
@@ -124,25 +118,76 @@
 
 .card-input{
   position: absolute;
-  top: 100px;
+  top: 80px;
   left: 15px;
 }
 
 .card-input textarea{
   background-color: transparent;
-  border: 1px black solid;
+  border: 1px rgb(29, 26, 26) solid;
   color: white;
-  width: 150px;
+  width: 175px;
   resize: none;
+  padding: 10px;
 }
-textarea:focus{
-  border: red;
+
+.card-input textarea:focus{
+  border: #57617d;
 }
 
 .card-input textarea::placeholder{
+  color: rgba(227, 23, 23, 0.159);
+}
+
+.card-input:hover textarea::placeholder{
+  color: rgba(159, 23, 23, 0.801);
+  transition: 0.4s ease-out;
+
+}
+
+.card .card-button {
   position: absolute;
-  top: 3px;
-  left: 3px;
+  top: 220px;
+  left: 82px;
+}
+
+.card-button button{
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 23px;
+  background-color: var(--dark-more-background-color-card-button);
+  box-shadow: -1rem 1rem 3rem var(--dark-mode-box-shadow-card-button);
+  cursor: pointer;
+}
+
+/* output */
+.output-container{
+  /* width: 100%;
+  height: 100%; */
+  position: relative;
+  padding-left: 0px;
+  margin-top: 500px;
+  word-break: break-word;
+  overflow: scroll;
+  width: 1000px;
+  height: 280px;
+  
+}
+.output-container::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+.output-container:hover::-webkit-scrollbar {
+  width: 5px;
+  height: 0px;
+  transition: 04s ease-in;
+}
+.output-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+}
+.output-container::-webkit-scrollbar-thumb {
+  background-color: rgb(140, 85, 85);
 }
 
 @media screen and (max-width: 1000px){
@@ -150,10 +195,23 @@ textarea:focus{
   .cards-container{
     width: 500px;
   }
+  .card:last-child {
+  width: 285px;
+}
+
+  .card:hover {
+    width: 300px;
+  }
 }
 
 @media screen and (max-width: 600px){
   .cards-container{
     width: 350px;
+  }
+  .card:last-child {
+  width: 340px;
+}
+  .card:hover:not(:last-child) {
+    width: 370px;
   }
 }
