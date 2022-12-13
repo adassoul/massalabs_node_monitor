@@ -151,14 +151,16 @@
   left: 82px;
 }
 
+.card:hover button{
+  box-shadow: -0rem 0rem 30rem rgb(85, 60, 60);
+}
 .card-button button{
   border-radius: 50%;
   width: 45px;
   height: 45px;
   font-size: 23px;
   background-color: var(--dark-more-background-color-card-button);
-  box-shadow: -1rem 1rem 3rem var(--dark-mode-box-shadow-card-button);
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /* output */
